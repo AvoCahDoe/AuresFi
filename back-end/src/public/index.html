@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wallet Transsssfers</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 1em;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5em;
+      text-align: left;
+    }
+    th {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <h1>Transfers for Wallet</h1>
+  <table id="transfersTable">
+    <thead>
+      <tr>
+        <th>Network</th>
+        <th>Block Number</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Category</th>
+        <th>Value</th>
+        <th>Token</th>
+        <th>Hash</th>
+      </tr> 
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    async function fetchTransfers() {
+      const res = await fetch("/transfers");
+      const transfers = await res.json();
+
+      const tbody = document.querySelector("#transfersTable tbody");
+      tbody.innerHTML = "";
+
+      for (const tx of transfers) {
+        const tr = document.createElement("tr");
+
+        tr.innerHTML = `
+          <td>${tx.network}</td>
+          <td>${parseInt(tx.blockNum, 16)}</td>
+          <td>${tx.from}</td>
+          <td>${tx.to}</td>
+          <td>${tx.category}</td>
+          <td>${tx.value ?? "-"}</td>
+          <td>${tx.asset ?? "-"}</td>
+          <td><a href="https://etherscan.io/tx/${tx.hash}" target="_blank" rel="noopener noreferrer">${tx.hash.slice(0, 10)}...</a></td>
+        `;
+
+        tbody.appendChild(tr);
+      }
+    }
+
+    fetchTransfers();
+  </script>
+</body>
+</html>
