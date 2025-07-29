@@ -1,0 +1,40 @@
+<h1>Alchemy Wallet Transfers</h1>
+
+<div *ngIf="loading(); else tableContent">Loading...</div>
+
+<ng-template #tableContent>
+  <table border="1" cellpadding="6" cellspacing="0" style="width: 100%;">
+    <thead>
+      <tr>
+        <th>Network</th>
+        <th>Block</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Asset</th>
+        <th>Value</th>
+        <th>Category</th>
+        <th>Txn Hash</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (tx of transfers(); track tx.hash) {
+        <tr>
+          <td>{{ tx.network }}</td>
+          <td>{{ formatBlock(tx.blockNum) }}</td>
+          <td>{{ tx.from }}</td>
+          <td>{{ tx.to }}</td>
+          <td>{{ tx.asset || '-' }}</td>
+          <td>{{ tx.value || '-' }}</td>
+          <td>{{ tx.category }}</td>
+          <td>
+            <a href="https://etherscan.io/tx/{{ tx.hash }}" target="_blank">
+              {{ tx.hash.slice(0, 10) }}...
+            </a>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</ng-template>
+
+
