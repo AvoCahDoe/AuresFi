@@ -73,25 +73,6 @@ L'application sera accessible sur `http://localhost:4200`
 ng build --prod
 ```
 
-## 🏗️ Structure du projet
-
-```
-src/
-├── app/
-│   ├── components/
-│   │   └── transfer-table/
-│   │       ├── transfer-table.ts      # Composant principal
-│   │       ├── transfer-table.html    # Template HTML
-│   │       └── transfer-table.scss    # Styles SCSS
-│   ├── services/
-│   │   └── transfer.ts               # Service pour les appels API
-│   ├── app.config.ts                 # Configuration de l'application
-│   ├── app.routes.ts                 # Configuration des routes
-│   └── app.ts                        # Composant racine
-├── index.html                        # Page HTML principale
-└── main.ts                          # Point d'entrée de l'application
-```
-
 ## 📊 Fonctionnalités du tableau (so far)
 
 Le tableau affiche les colonnes suivantes :
