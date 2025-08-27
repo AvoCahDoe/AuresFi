@@ -38,24 +38,6 @@ Une application Angular moderne qui affiche les transferts de portefeuille Alche
    npm install
    ```
 
-3. **Configurer l'API Backend**
-
-   Assurez-vous qu'un serveur backend est en cours d'exécution sur `http://localhost:3000` avec l'endpoint `/api/transfers` qui retourne un tableau de transferts au format :
-
-   ```json
-   [
-     {
-       "network": "ethereum",
-       "blockNum": "0x123456",
-       "from": "0x...",
-       "to": "0x...",
-       "asset": "ETH",
-       "value": "1.0",
-       "category": "external",
-       "hash": "0x..."
-     }
-   ]
-   ```
 
 ## 🚦 Démarrage
 
