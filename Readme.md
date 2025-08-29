@@ -15,7 +15,6 @@ Une application Angular moderne qui affiche les transferts de portefeuille Alche
 - **Angular 18+** avec architecture standalone
 - **TypeScript** pour le typage statique
 - **SCSS** pour les styles avancés
-- **HttpClient** pour les appels API
 
 ## 📋 Prérequis
 
